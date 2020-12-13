@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.9",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "log-timestamp": "^0.3.0",
     "mssql": "^6.2.3",
     "typeorm": "^0.2.29"
   }

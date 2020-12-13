@@ -1,1 +1,54 @@
-<p>products works!</p>
+<!--<p>products works!</p>-->
+<h1 class="h1">Product Inventory</h1>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
+  <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
+    <ng-container matColumnDef="EmailAddressID">
+      <th mat-header-cell *matHeaderCellDef> EmailAddressID</th>
+      <td mat-cell *matCellDef="let product"> {{product.EmailAddressID}}</td>
+    </ng-container>
+    <ng-container matColumnDef="EmailAddress">
+      <th mat-header-cell *matHeaderCellDef> EmailAddress</th>
+      <td mat-cell *matCellDef="let product"> {{product.EmailAddress}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ModifiedDate">
+      <th mat-header-cell *matHeaderCellDef> ModifiedDate</th>
+      <td mat-cell *matCellDef="let product"> {{product.ModifiedDate}}</td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-icon-button (click)="editProduct(product)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-icon-button (click)="deleteProduct(product)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-divider fxShow="false" fxShow.gt-sm [vertical]="true"></mat-divider>
+  <div>
+    <h2>Selected Product</h2>
+    <label>EmailAddressID
+      <input type="number" [(ngModel)]="selectedProduct.EmailAddressID">
+    </label>
+    <label>EmailAddress
+      <input type="email" [(ngModel)]="selectedProduct.EmailAddress">
+    </label>
+    <label>ModifiedDate
+      <input type="date" [(ngModel)]="selectedProduct.ModifiedDate">
+    </label>
+    <button mat-flat-button color="primary" (click)="updateProduct()">{{(selectedProduct.EmailAddressID!==undefined)?'Update':'Create'}}</button>
+    <button mat-flat-button color="primary" (click)="clearProduct()">Clear</button>
+  </div>
+  <div class="progress-spinner" *ngIf="isWiP">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

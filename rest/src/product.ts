@@ -3,7 +3,11 @@ import { getProductRepository, Person_EmailAddress } from './model';
 
 export const router: Router = Router();
 
+require('log-timestamp');
+
 router.get('/product', async function (req: Request, res: Response, next: NextFunction) {
+  console.log('GET /product');
+
   try {
     const repository = await getProductRepository();
 
@@ -16,6 +20,8 @@ router.get('/product', async function (req: Request, res: Response, next: NextFu
 });
 
 router.get('/product/:id', async function (req: Request, res: Response, next: NextFunction) {
+  console.log('GET /product/:id');
+
   try {
     const repository = await getProductRepository();
 
@@ -28,6 +34,8 @@ router.get('/product/:id', async function (req: Request, res: Response, next: Ne
 });
 
 router.post('/product', async function (req: Request, res: Response, next: NextFunction) {
+  console.log('POST /product');
+
   try {
     const repository = await getProductRepository();
 
@@ -43,6 +51,8 @@ router.post('/product', async function (req: Request, res: Response, next: NextF
 });
 
 router.post('/product/:id', async function (req: Request, res: Response, next: NextFunction) {
+  console.log('POST /product/:id');
+
   try {
     const repository = await getProductRepository();
 
@@ -57,6 +67,8 @@ router.post('/product/:id', async function (req: Request, res: Response, next: N
 });
 
 router.delete('/product/:id', async function (req: Request, res: Response, next: NextFunction) {
+  console.log('DELETE /product/:id');
+
   try {
     const repository = await getProductRepository();
 
