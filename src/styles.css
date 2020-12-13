@@ -1,5 +1,10 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 body {
   font-family: Bliss Pro Medium, Lucida Sans Unicode, sans-serif;
   font-size: 16pt;
+}
+
+.expanded-toolbar {
+  justify-content: space-between;
 }
