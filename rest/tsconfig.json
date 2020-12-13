@@ -4,7 +4,8 @@
     "module": "commonjs",
     "outDir": "dist",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts"
