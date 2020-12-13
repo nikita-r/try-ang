@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
+import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'Page-C', data: { letter: 'C' },
     component: PageComponent
+  },
+  {
+    path: 'AdventureWorks',
+    component: AdventureWorksComponent
   },
   {
     path: 'products',

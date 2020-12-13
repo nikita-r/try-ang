@@ -23,13 +23,15 @@ import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
+import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     HomeComponent,
-    PageComponent
+    PageComponent,
+    AdventureWorksComponent
   ],
   imports: [
     BrowserModule,
