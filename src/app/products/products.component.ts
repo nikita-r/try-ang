@@ -28,13 +28,23 @@ export class ProductsComponent implements OnInit {
     this.isWiP = true;
     console.log('before getProducts');
     try {
-      const data = await this.productService.getProducts();
-      this.dataSource.data = data;
+      const incoming = await this.productService.getProducts();
+      console.log('after await getProducts');
+      incoming.subscribe({
+        next: (rez: any) => {
+          console.log('rez type:', typeof rez);
+          console.log('rez size:', (rez as []).length);
+          this.dataSource.data = rez;
+          this.isWiP = false;
+        },
+        error: (err)=>{ console.log(err); this.isWiP = false; },
+        complete: ()=>{ console.log('incoming complete'); this.isWiP = false; }
+      });
     } catch (err) {
-      console.log(err);
+      console.log('failed await getProducts:', err);
     }
     console.log('after getProducts');
-    this.isWiP = false;
+    //this.isWiP = false;
   }
 
   async updateProduct() {

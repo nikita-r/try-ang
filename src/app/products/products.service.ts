@@ -25,16 +25,7 @@ export class ProductsService {
       //  Authorization: `Bearer ${token}`
       //}
     });
-    return (new Promise<any>((resolve: any, reject: any) => {
-      result.subscribe({
-        next: (rez: any) => {
-          console.log('rez size:', (rez as []).length);
-        },
-        error: reject,
-        complete: resolve
-      })
-    })
-    );
+    return result;
   }
 
   getProducts() {
