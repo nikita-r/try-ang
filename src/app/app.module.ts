@@ -25,6 +25,8 @@ import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
 import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
 
+import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import { AdventureWorksComponent } from './adventure-works/adventure-works.compo
     MatProgressSpinnerModule,
     HttpClientModule,
     FormsModule,
+    MatAccordion, MatExpansionPanel
   ],
   providers: [],
   bootstrap: [AppComponent]

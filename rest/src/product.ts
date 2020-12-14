@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { getProductRepository, Person_EmailAddress } from './model';
+import { getProductRepository, Person_EmailAddress, getDatabaseOutline } from './model';
 
 export const router: Router = Router();
 
@@ -75,6 +75,18 @@ router.delete('/product/:id', async function (req: Request, res: Response, next:
     await repository.delete({ EmailAddressID: req.params.id });
 
     res.send('OK');
+  } catch (err) {
+    return next(err);
+  }
+});
+
+router.get('/AdventureWorks', async function (req: Request, res: Response, next: NextFunction) {
+  console.log('GET /AdventureWorks');
+
+  try {
+    const r = await getDatabaseOutline();
+
+    res.send(r);
   } catch (err) {
     return next(err);
   }

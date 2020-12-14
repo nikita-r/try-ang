@@ -1,1 +1,18 @@
 <p>adventure-works works!</p>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let schema of dathier | keyvalue">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{schema.key}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container *ngFor="let type of schema.value | keyvalue">
+      <!--{{type.key}}-->
+      <ng-container *ngIf="(type.key === '<table>')">
+        <p *ngFor="let table of type.value">
+          {{table}}
+        </p>
+      </ng-container>
+    </ng-container>
+  </mat-expansion-panel>
+</mat-accordion>
