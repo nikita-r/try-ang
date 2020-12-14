@@ -26,6 +26,7 @@ import { PageComponent } from './page/page.component';
 import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
 
 import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
+import { CallbackPipe } from './util/callback.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
     ProductsComponent,
     HomeComponent,
     PageComponent,
-    AdventureWorksComponent
+    AdventureWorksComponent,
+    CallbackPipe
   ],
   imports: [
     BrowserModule,
