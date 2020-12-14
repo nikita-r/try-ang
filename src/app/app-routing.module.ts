@@ -5,6 +5,7 @@ import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
 import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
+import { AWTableComponent } from './aw-table/aw-table.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'AdventureWorks',
     component: AdventureWorksComponent
+  },
+  {
+    path: 'AdventureWorks/table/:table',
+    component: AWTableComponent
   },
   {
     path: 'products',

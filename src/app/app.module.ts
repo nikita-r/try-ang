@@ -25,8 +25,9 @@ import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
 import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
 
-import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
+//import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
 import { CallbackPipe } from './util/callback.pipe';
+import { AWTableComponent } from './aw-table/aw-table.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CallbackPipe } from './util/callback.pipe';
     HomeComponent,
     PageComponent,
     AdventureWorksComponent,
-    CallbackPipe
+    CallbackPipe,
+    AWTableComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { CallbackPipe } from './util/callback.pipe';
     MatProgressSpinnerModule,
     HttpClientModule,
     FormsModule,
-    MatAccordion, MatExpansionPanel
+    //MatAccordion, MatExpansionPanel
   ],
   providers: [],
   bootstrap: [AppComponent]

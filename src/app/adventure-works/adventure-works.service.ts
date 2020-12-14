@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { shareReplay, tap } from 'rxjs/operators';
 
 const url = 'http://localhost:4201';
 
@@ -9,20 +11,17 @@ const url = 'http://localhost:4201';
 })
 export class AdventureWorksService {
 
-  constructor(private http: HttpClient) {
-  }
+  data: Observable<any>;
 
-  private async request(method: string, url: string, data?: any) {
-    console.log(`<${method} request> ` + JSON.stringify(data));
-    return this.http.request(method, url, {
-      body: data,
-      responseType: 'json',
-      observe: 'body',
-    });
+  constructor(private http: HttpClient) {
+    this.data = this.http.request(
+                'get', `${url}/AdventureWorks`
+              , { body: undefined, responseType: 'json'
+                , observe: 'body', })
+                .pipe( shareReplay(1) );
   }
 
   getDatabaseOutline() {
-    console.log('getDatabaseOutline');
-    return this.request('get', `${url}/AdventureWorks`)
+    return this.data;
   }
 }

@@ -1,18 +1,22 @@
 <p>adventure-works works!</p>
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let schema of dathier | keyvalue">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{schema.key}}
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <ng-container *ngFor="let type of schema.value | keyvalue">
-      <!--{{type.key}}-->
-      <ng-container *ngIf="(type.key === '<table>')">
-        <p *ngFor="let table of type.value">
-          {{table}}
-        </p>
+<ul>
+  <li *ngFor="let schema of dathier | keyvalue">
+    <input type="checkbox" id="list-item-{{schema.key}}" />
+    <label for="list-item-{{schema.key}}" class="first">{{schema.key}}</label>
+    <ul>
+      <ng-container *ngFor="let type of schema.value | keyvalue">
+        <!--{{type.key}}-->
+        <ng-container *ngIf="(type.key === '<table>')">
+          <li *ngFor="let table of type.value" style="margin-left: 2em;">
+            <mat-icon>table_view</mat-icon>
+            <button mat-button routerLink="/AdventureWorks/table/{{table}}">{{table}}</button>
+          </li>
+        </ng-container>
       </ng-container>
-    </ng-container>
-  </mat-expansion-panel>
-</mat-accordion>
+    </ul>
+  </li>
+</ul>
+
+<div class="progress-spinner" *ngIf="isWiP">
+  <mat-spinner></mat-spinner>
+</div>
