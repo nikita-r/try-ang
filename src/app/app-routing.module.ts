@@ -15,15 +15,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'Page-A', data: { letter: 'A' },
+    path: 'Page-A', data: { letter: 'A', animation: 'A' },
     component: PageComponent
   },
   {
-    path: 'Page-B', data: { letter: 'B' },
+    path: 'Page-B', data: { letter: 'B', animation: 'B' },
     component: PageComponent
   },
   {
-    path: 'Page-C', data: { letter: 'C' },
+    path: 'Page-C', data: { letter: 'C', animation: 'C' },
     component: PageComponent
   },
   {

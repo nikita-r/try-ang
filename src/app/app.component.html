@@ -37,4 +37,6 @@
   <button mat-menu-item *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
 </mat-menu>
 
-<router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>
