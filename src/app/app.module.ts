@@ -29,6 +29,19 @@ import { AdventureWorksComponent } from './adventure-works/adventure-works.compo
 import { CallbackPipe } from './util/callback.pipe';
 import { AWTableComponent } from './aw-table/aw-table.component';
 
+
+import {
+  OKTA_CONFIG,
+  OktaAuthModule
+} from '@okta/okta-angular';
+
+const oktaConfig = {
+  issuer: 'https://dev-6008901.okta.com/oauth2/default',
+  clientId: '0oa27pcpvMnlYOj4g5d6',
+  redirectUri: window.location.origin + '/implicit/callback'
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +68,12 @@ import { AWTableComponent } from './aw-table/aw-table.component';
     HttpClientModule,
     FormsModule,
     //MatAccordion, MatExpansionPanel
+
+    OktaAuthModule
   ],
-  providers: [],
+  providers: [
+    { provide: OKTA_CONFIG, useValue: oktaConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

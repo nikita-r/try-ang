@@ -7,6 +7,8 @@ import { PageComponent } from './page/page.component';
 import { AdventureWorksComponent } from './adventure-works/adventure-works.component';
 import { AWTableComponent } from './aw-table/aw-table.component';
 
+import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
+
 const routes: Routes = [
   {
     path: '',
@@ -34,7 +36,12 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate: [OktaAuthGuard]
+  },
+  {
+    path: 'implicit/callback',
+    component: OktaCallbackComponent
   }
 ];
 
